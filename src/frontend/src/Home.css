@@ -21,6 +21,18 @@
     outline: none;
 }
 
+.date-selector {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.date-selector input[type="date"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
 .apod-title {
     text-align: center;
     margin-top: 100px;

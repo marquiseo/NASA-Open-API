@@ -9,7 +9,7 @@ import project1.service.NasaApodService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3001")
 @RequestMapping("/api/nasa/apod")
 public class NasaApodController {
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ApodCard from './ApodCard';
 import useApodStore from "../../store/useApodStore";
 import { Link } from 'react-router-dom';
-import './Gallery.css'; // Ensure this is the CSS file where your styles are defined
+import './Gallery.css';
 
 const Gallery = () => {
     const { rangeOrCountData, error, fetchApodByParams, resetData } = useApodStore();
@@ -10,11 +10,10 @@ const Gallery = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        resetData();
 
         const params = {};
         if (selection === 'count') {
-            params.count = document.querySelector('.input-count').value;
+            params.count = parseInt(document.querySelector('.input-count').value, 10);
         } else if (selection === 'dateRange') {
             params.start_date = document.querySelector('.input-date.start').value;
             params.end_date = document.querySelector('.input-date.end').value;
@@ -53,7 +52,7 @@ const Gallery = () => {
 
             {error && <p className="error">{error}</p>}
             <div className="range-or-count-cards">
-                {rangeOrCountData.map((data, index) => <ApodCard key={index} data={data} />)}
+                {rangeOrCountData.length > 0 ? rangeOrCountData.map((data, index) => <ApodCard key={index} data={data} />) : <p>No data to display. Please adjust the query.</p>}
             </div>
         </div>
     );
