@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/frontend/src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -10,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -25,16 +27,34 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: ['.js', '.jsx', '.css'],
+        fallback: {
+            "http": require.resolve("stream-http"),
+            "https": require.resolve("https-browserify"),
+            "os": require.resolve("os-browserify/browser"),
+            "process": require.resolve("process/browser")
+        },
+        modules: [
+            path.resolve('./node_modules'),
+            path.resolve('./src/frontend')
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
+            template: './public/index.html',
+            filename: 'index.html'
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
     ],
     devServer: {
         static: {
             directory: path.join(__dirname, 'public'),
         },
+        historyApiFallback: true,
         compress: true,
-        port: 9000
+        port: 3000
     }
 };

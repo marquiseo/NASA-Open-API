@@ -9,6 +9,7 @@ import project1.service.NasaApodService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/nasa/apod")
 public class NasaApodController {
 
@@ -19,8 +20,8 @@ public class NasaApodController {
         this.nasaApodService = nasaApodService;
     }
 
-    @GetMapping("/current")
-    public ResponseEntity<ApodResponse> getCurrentApod() {
+    @GetMapping("/today")
+    public ResponseEntity<ApodResponse> getTodayApod() {
         ApodResponse apodResponse = nasaApodService.getCurrentApod();
         return apodResponse != null ? ResponseEntity.ok(apodResponse) : ResponseEntity.notFound().build();
     }
@@ -35,6 +36,3 @@ public class NasaApodController {
         return apodResponses != null && !apodResponses.isEmpty() ? ResponseEntity.ok(apodResponses) : ResponseEntity.notFound().build();
     }
 }
-
-
-

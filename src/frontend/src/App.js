@@ -1,21 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link, Outlet } from 'react-router-dom';
-import ApodPage from './ApodPage';
-import './App.css'
+import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
+import Home from './Home';
+import Gallery from './Gallery';
+import './App.css';
 
-const App = () => {
-  return (
-      <BrowserRouter>
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/apod">NASA APOD</Link>
-        </nav>
-        <Outlet />
-        <Routes>
-          <Route path="/" element={<div>Home Page Content</div>} />
-          <Route path="/apod" element={<ApodPage />} />
-        </Routes>
-      </BrowserRouter>
-  );
-};
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="*" element={<Navigate replace to="/" />} />
+            </Routes>
+        </Router>
+    );
+}
 
 export default App;

@@ -1,0 +1,67 @@
+.navbar {
+    background-color: gray;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: Center;
+    align-items: center;
+}
+
+.navbar button, .navbar a {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.apod-title {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.apod-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.selection-dropdown, .input-date, .input-count, .input-button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.input-button {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
