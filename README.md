@@ -29,16 +29,15 @@ This project integrates with NASA's Astronomy Picture of the Day (APOD) API, off
    ```
    Replace **your_nasa_api_key_here** with your actual NASA API key.
 
-4. **Build the project** using Gradle:
+4. **Build the project** using Maven:
 
-   ```properties
-   ./gradlew build
+   ```bash
+   mvn clean install
 
 5. **Run the application**:
 
-   ```properties
-   ./gradlew bootRun
-   ```
+   mvn spring-boot:run
+   
    The application will start on `localhost:8080`.
 
 ## API Endpoints
